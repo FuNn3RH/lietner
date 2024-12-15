@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WordController;
-use App\Models\Answer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,13 +28,6 @@ Route::post('login', [UserController::class, 'loginRequest'])->name('login-reque
 Route::get('/login/{id}', function ($id) {
     Auth::loginUsingId($id);
     return redirect()->route('leitner');
-});
-
-Route::get('test', function () {
-    $words = Answer::whereIn('value', [30, 16, 8, 4, 2])->with('word')->get();
-
-    return response()->json($words, 200);
-
 });
 
 // Route::get('/test', function () {

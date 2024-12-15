@@ -8,6 +8,13 @@
 
 <body>
     <div class="main">
+
+        @if (session('error'))
+            <h3 style="width: 101%;display: block;text-align: center;">
+                {{ session('error') }}
+            </h3>
+        @endif
+
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
@@ -26,7 +33,7 @@
                 @csrf
                 <label for="chk" aria-hidden="true">{{ __('Login') }}</label>
                 <input type="email" name="email" placeholder="{{ __('Email') }}" required>
-                <input type="password" name="password" placeholder="{{ __('Password') }}" required>
+                {{-- <input type="password" name="password" placeholder="{{ __('Password') }}" required> --}}
                 <button>{{ __('Login') }}</button>
             </form>
         </div>

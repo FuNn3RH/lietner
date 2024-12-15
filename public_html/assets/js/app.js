@@ -160,8 +160,8 @@ window.addEventListener('DOMContentLoaded', () => {
         example.textContent = 'مثال'
         example.style.cssText = 'font-size:1.5rem;'
 
-        translate.title = wordsArray[index].synonym[0]
-        example.title = wordsArray[index].examples[0]
+        translate.title = wordsArray[index].synonym
+        example.title = wordsArray[index].examples
         value.textContent = wordsArray[index].answers
         known.href = `${known.dataset.url}?word_id=${wordsArray[index].id}`
         learn.href = `${learn.dataset.url}?word_id=${wordsArray[index].id}`
@@ -248,8 +248,8 @@ window.addEventListener('DOMContentLoaded', () => {
             answerValue = 0
         }
 
-        translate.title = wordsArray[index].synonym[0]
-        example.title = wordsArray[index].examples[0]
+        translate.title = wordsArray[index].synonym
+        example.title = wordsArray[index].examples
         value.textContent = answerValue
         known.href = `${known.dataset.new}?word_id=${wordsArray[index].id}`
         learn.href = `${learn.dataset.new}?word_id=${wordsArray[index].id}`

@@ -21,11 +21,11 @@ class UserController extends Controller {
             return redirect()->route('login-register-from')->with('error', 'Email or Password is incorrect!');
         }
 
-        if (!Hash::check($request->password, $user->password)) {
-            return redirect()->route('login-register-from')->with('error', 'Email or Password is incorrect!');
-        }
+        // if (!Hash::check($request->password, $user->password)) {
+        //     return redirect()->route('login-register-from')->with('error', 'Email or Password is incorrect!');
+        // }
 
-        Auth::login($user);
+        Auth::login($user, true);
 
         return redirect()->route('leitner');
     }
