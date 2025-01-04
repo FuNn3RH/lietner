@@ -1,7 +1,16 @@
 window.addEventListener('DOMContentLoaded', () => {
     const $ = document,
         navBtn = $.querySelector('.mobile-nav__btn'),
-        mobileNavMenu = $.querySelector('.mobile-nav-menu');
+        mobileNavMenu = $.querySelector('.mobile-nav-menu'),
+        title = document.querySelector('#title'),
+        audio = document.querySelector('#audio'),
+        translate = document.querySelector('#translate'),
+        example = document.querySelector('#example'),
+        known = document.querySelector('#known'),
+        learn = document.querySelector('#learn'),
+        value = document.querySelector('#value'),
+        indexElem = document.querySelector('#index');
+
     if (navBtn) {
 
         navBtn.addEventListener('click', () => {
@@ -87,7 +96,6 @@ window.addEventListener('DOMContentLoaded', () => {
         await fetch(url)
             .then(res => res.json())
             .then(data => {
-
                 if (data.length == 0) {
                     alert('No Word')
                     return
@@ -98,8 +106,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 data.forEach(item => {
                     wordsArray.push(item)
                 })
-
-                console.log(wordsArray);
 
                 changeNewFlashCard()
                 index = 0
@@ -137,14 +143,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    const title = document.querySelector('#title')
-    const audio = document.querySelector('#audio')
-    const translate = document.querySelector('#translate')
-    const example = document.querySelector('#example')
-    const known = document.querySelector('#known')
-    const learn = document.querySelector('#learn')
-    const value = document.querySelector('#value')
-    const indexElem = document.querySelector('#index')
 
     function changeFlashCard() {
         title.textContent = wordsArray[index].name
@@ -168,6 +166,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
         known.dataset.action = 'old'
         learn.dataset.action = 'old'
+
+
+        known.className = 'btn btn-success fw-bold'
+        learn.className = 'btn btn-danger fw-bold'
+        learn.textContent = 'یادم رفته بود'
+
+
     }
 
     translate.addEventListener('click', () => {
@@ -256,6 +261,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         known.dataset.action = 'new'
         learn.dataset.action = 'new'
+
+        known.className = 'btn btn-primary fw-bold'
+        learn.className = 'btn btn-success fw-bold'
+
+        learn.textContent = 'یاد گرفتم'
 
     }
 
